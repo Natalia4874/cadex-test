@@ -1,4 +1,4 @@
-import NavLink from '@/components/Button'
+import NavLink from '@/components/NavLink'
 import { AppBar, Box, Container, Divider, Stack, Toolbar, Typography } from '@mui/material'
 import Link from 'next/link'
 

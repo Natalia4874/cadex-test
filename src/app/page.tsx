@@ -1,7 +1,7 @@
 'use client'
 
-import NavLink from '@/components/Button'
 import List from '@/components/List'
+import NavLink from '@/components/NavLink'
 import { Box, Container, Typography } from '@mui/material'
 
 import data from '../data/data.json'

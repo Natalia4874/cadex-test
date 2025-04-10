@@ -7,7 +7,7 @@ import { Alert, Box, Button, CircularProgress, Paper, TextField, Typography } fr
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
-import NavLink from '../Button'
+import NavLink from '../NavLink'
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name too short').max(50),
