@@ -5,7 +5,7 @@ import NavLink from '@/components/NavLink'
 import { Box, Container, Typography } from '@mui/material'
 
 import data from '../data/data.json'
-import { VideoSection } from './video/page'
+import VideoSection from './video/page'
 
 export default function Home() {
   return (

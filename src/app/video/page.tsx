@@ -9,7 +9,9 @@ interface VideoSectionProps {
   controls?: boolean
 }
 
-export const VideoSection = ({ videoId, autoPlay = false, controls = true }: VideoSectionProps) => {
+export default function VideoSection(props: VideoSectionProps) {
+  const { videoId, autoPlay = false, controls = true } = props
+
   const opts = {
     height: '300',
     width: '100%',
