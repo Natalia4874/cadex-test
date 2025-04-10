@@ -54,11 +54,15 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    reset
+    formState: { errors, isValid: isFormValid, touchedFields },
+    reset,
+    watch
   } = useForm<FormData>({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
+    mode: 'onChange'
   })
+
+  const formValues = watch()
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -124,6 +128,8 @@ export default function ContactForm() {
           error={!!errors.name}
           helperText={errors.name?.message}
           disabled={isSubmitting}
+          value={formValues.name}
+          isValid={!errors.name && touchedFields.name}
         />
         <FormField
           label="email"
@@ -131,6 +137,8 @@ export default function ContactForm() {
           error={!!errors.email}
           helperText={errors.email?.message}
           disabled={isSubmitting}
+          value={formValues.email}
+          isValid={!errors.email && touchedFields.email}
         />
         <FormField
           label="message"
@@ -141,6 +149,8 @@ export default function ContactForm() {
           error={!!errors.message}
           helperText={errors.message?.message}
           disabled={isSubmitting}
+          value={formValues.message}
+          isValid={!errors.message && touchedFields.message}
         />
         <Button
           type="submit"
