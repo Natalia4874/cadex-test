@@ -3,8 +3,8 @@ import { ReactNode } from 'react'
 import { Box } from '@mui/material'
 import type { Metadata } from 'next'
 
-import Footer from './footer/page'
-import Header from './header/page'
+import Footer from '../components/Footer/page'
+import Header from '../components/Header/page'
 
 import '../styles/globals.css'
 
