@@ -16,12 +16,13 @@ export default function Home() {
           aria-labelledby="section-one"
           sx={{
             display: 'flex',
-            flexDirection: 'row',
+            flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
             bgcolor: '#f2f2f2',
             color: 'text.primary',
-            py: 4,
-            px: 5
+            gap: 2,
+            py: { xs: 2, md: 4 },
+            px: { xs: 2, md: 5 }
           }}
         >
           <Box sx={{ flexBasis: '35%' }}>
@@ -92,15 +93,18 @@ export default function Home() {
             py: 9,
             display: 'flex',
             flexDirection: 'column',
+            justifyContent: 'center',
             alignItems: 'center',
-            gap: 5
+            gap: 5,
+            textAlign: 'center'
           }}
         >
           <Typography
             variant="h3"
             component="h3"
             sx={{
-              fontWeight: 700
+              fontWeight: 700,
+              px: 2
             }}
           >
             Less important title
