@@ -1,95 +1,113 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+
+import NavLink from '@/components/Button'
+import List from '@/components/List'
+import { Box, Container, Typography } from '@mui/material'
+
+import data from '../data/data.json'
+import { VideoSection } from './video/page'
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Box component="main" sx={{ display: 'flex', flexGrow: 1 }}>
+      <Container maxWidth="lg" sx={{}}>
+        <Box
+          component="section"
+          aria-labelledby="section-one"
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            bgcolor: '#f2f2f2',
+            color: 'text.primary',
+            py: 4,
+            px: 5
+          }}
+        >
+          <Box sx={{ flexBasis: '35%' }}>
+            <Typography
+              variant="h3"
+              component="h1"
+              gutterBottom
+              sx={{
+                fontWeight: 700
+              }}
+            >
+              Most important title on the page
+            </Typography>
+            <Typography variant="subtitle1">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et
+              condimentum ultricies, sem urna convallis metus, vel suscipit nibh lacus tincidunt
+              ante
+            </Typography>
+          </Box>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Box sx={{ flexBasis: '50%' }}>
+            <VideoSection videoId="dQw4w9WgXcQ" aria-label="Demo video" />
+          </Box>
+        </Box>
+        <Box
+          component="section"
+          aria-labelledby="section-two"
+          sx={{
+            bgcolor: 'background.paper',
+            color: 'text.primary',
+            pt: 7,
+            pb: 6,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 6
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 10
+            }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+            <Typography
+              variant="h3"
+              component="h2"
+              textAlign="center"
+              sx={{
+                fontWeight: 600
+              }}
+            >
+              Also very important title
+            </Typography>
+            <List itemlist={data} />
+          </Box>
+          <NavLink label="Contact us" href="/contacts" />
+        </Box>
+
+        <Box
+          component="section"
+          aria-labelledby="section-three"
+          sx={{
+            bgcolor: '#f2f2f2',
+            color: 'text.primary',
+            py: 9,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 5
+          }}
+        >
+          <Typography
+            variant="h3"
+            component="h3"
+            sx={{
+              fontWeight: 700
+            }}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+            Less important title
+          </Typography>
+          <NavLink label="Contact us" href="/contacts" />
+        </Box>
+      </Container>
+    </Box>
+  )
 }
