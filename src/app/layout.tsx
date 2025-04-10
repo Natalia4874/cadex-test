@@ -1,10 +1,10 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 import { Box } from '@mui/material'
 import type { Metadata } from 'next'
 
-import Footer from '../components/Footer/page'
-import Header from '../components/Header/page'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 import '../styles/globals.css'
 

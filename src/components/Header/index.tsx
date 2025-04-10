@@ -1,6 +1,9 @@
-import NavLink from '@/components/NavLink'
+import React from 'react'
+
 import { AppBar, Box, Container, Divider, Stack, Toolbar, Typography } from '@mui/material'
 import Link from 'next/link'
+
+import NavLink from '../NavLink'
 
 export default function Header() {
   return (

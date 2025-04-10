@@ -1,14 +1,10 @@
 'use client'
 
-import ContactForm from '@/components/ContactForm'
+import React from 'react'
+
 import { Box, Container } from '@mui/material'
 
-// import dynamic from 'next/dynamic'
-
-// const ContactForm = dynamic(() => import('../../components/ContactForm'), {
-//   loading: () => <p>Loading...</p>,
-//   ssr: false
-// })
+import ContactForm from '../../components/ContactForm'
 
 export default function Contacts() {
   return (

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Container, Divider, Paper, Typography } from '@mui/material'
 
 export default function Footer() {

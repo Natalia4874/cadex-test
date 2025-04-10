@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import { Box, Typography } from '@mui/material'
 import YouTube from 'react-youtube'
 

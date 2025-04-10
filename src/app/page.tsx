@@ -1,25 +1,36 @@
 'use client'
 
-import List from '@/components/List'
-import NavLink from '@/components/NavLink'
+import React, { useEffect, useState } from 'react'
+
 import { Box, Container, Typography } from '@mui/material'
 
-import VideoSection from '../components/VideoSection/page'
-import data from '../data/data.json'
+import List from '../components/List'
+import NavLink from '../components/NavLink'
+import Section from '../components/Section'
+import VideoSection from '../components/VideoSection'
 
 export default function Home() {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/data')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+  }, [])
+
   return (
     <Box component="main" sx={{ display: 'flex', flexGrow: 1 }}>
-      <Container maxWidth="lg" sx={{}}>
-        <Box
-          component="section"
+      <Container maxWidth="lg">
+        <Section
           aria-labelledby="section-one"
           sx={{
-            display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
             bgcolor: '#f2f2f2',
-            color: 'text.primary',
             gap: 2,
             py: { xs: 2, md: 4 },
             px: { xs: 2, md: 5 }
@@ -46,18 +57,13 @@ export default function Home() {
           <Box sx={{ flexBasis: '50%' }}>
             <VideoSection videoId="dQw4w9WgXcQ" aria-label="Demo video" />
           </Box>
-        </Box>
-        <Box
-          component="section"
+        </Section>
+        <Section
           aria-labelledby="section-two"
           sx={{
             bgcolor: 'background.paper',
-            color: 'text.primary',
             pt: 7,
             pb: 6,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
             gap: 6
           }}
         >
@@ -79,22 +85,20 @@ export default function Home() {
             >
               Also very important title
             </Typography>
-            <List itemlist={data} />
+            {loading ? (
+              <Typography variant="body2">Loading...</Typography>
+            ) : (
+              <List itemlist={data} />
+            )}
           </Box>
           <NavLink label="Contact us" href="/contacts" />
-        </Box>
+        </Section>
 
-        <Box
-          component="section"
+        <Section
           aria-labelledby="section-three"
           sx={{
             bgcolor: '#f2f2f2',
-            color: 'text.primary',
             py: 9,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
             gap: 5,
             textAlign: 'center'
           }}
@@ -110,7 +114,7 @@ export default function Home() {
             Less important title
           </Typography>
           <NavLink label="Contact us" href="/contacts" />
-        </Box>
+        </Section>
       </Container>
     </Box>
   )
